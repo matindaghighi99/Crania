@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRANIA — CenteR for Advancing Neurotechnological Innovation to Applications</title>
+  <meta name="description" content="CRANIA brings together research, clinical and academic expertise across multiple disciplines, with broad patient access, to accelerate neuromodulation research into patient solutions. Hosted by University Health Network and University of Toronto.">
+  <link rel="icon" href="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ Header / Navigation ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="CRANIA home">
+        <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png" alt="CRANIA logo" class="brand-logo">
+        <span class="brand-text">
+          <strong>CRANIA</strong>
+          <small>UHN &middot; University of Toronto</small>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#top" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="scientists.html">Scientists</a></li>
+          <li><a href="#operation">Operations Team</a></li>
+          <li><a href="#latest-news">Latest News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://kite-uhn.com/space-booking">Space Booking</a></li>
+          <li><button type="button" class="btn btn-primary btn-nav" data-open-join>Join CRANIA</button></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ Hero: interactive 3D neural constellation ============ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-eyebrow"><span class="eyebrow-dot"></span>Neuromodulation Research &middot; Downtown Toronto</p>
+        <h1 id="hero-heading">Advancing neuromodulation from <em>discovery</em> to <span class="grad-word">patient impact</span></h1>
+        <p class="hero-lede">
+          CRANIA — the CenteR for Advancing Neurotechnological Innovation to Applications — unites
+          research, clinical and academic expertise across disciplines, with broad access to patients, in a
+          world-class centre for the research, development, application and commercialization of
+          neuromodulation technologies.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-magnetic" href="#cores">Explore our work</a>
+          <a class="btn btn-line btn-magnetic" href="scientists.html">Meet our scientists</a>
+          <button type="button" class="btn btn-line btn-magnetic" data-open-join>Join CRANIA</button>
+        </div>
+        <p class="hero-hint" aria-hidden="true">Drag the constellation to explore &middot; move your cursor to energize the network</p>
+      </div>
+      <div class="hero-ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>60+ Scientists</span><span class="tk-dot">◆</span>
+          <span>30+ Trainees</span><span class="tk-dot">◆</span>
+          <span>Hosted by University Health Network</span><span class="tk-dot">◆</span>
+          <span>University of Toronto</span><span class="tk-dot">◆</span>
+          <span>First-to-clinic Neuromodulation</span><span class="tk-dot">◆</span>
+          <span>Downtown Toronto</span><span class="tk-dot">◆</span>
+          <span>60+ Scientists</span><span class="tk-dot">◆</span>
+          <span>30+ Trainees</span><span class="tk-dot">◆</span>
+          <span>Hosted by University Health Network</span><span class="tk-dot">◆</span>
+          <span>University of Toronto</span><span class="tk-dot">◆</span>
+          <span>First-to-clinic Neuromodulation</span><span class="tk-dot">◆</span>
+          <span>Downtown Toronto</span><span class="tk-dot">◆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Mission & Vision: the duality ============ -->
+    <section class="section section-duality" id="about" aria-labelledby="mission-heading">
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-num">01</span>
+          <h2 id="mission-heading" class="kicker-title">Why we exist</h2>
+        </div>
+        <div class="duality-grid">
+          <article class="duality-card tilt" data-tilt>
+            <div class="tilt-inner">
+              <span class="duality-index" aria-hidden="true">M</span>
+              <p class="card-eyebrow">Our Mission</p>
+              <p class="duality-statement">To accelerate the translation of neuromodulation research to patient solutions that improve brain health and function.</p>
+              <div class="duality-rule" aria-hidden="true"></div>
+            </div>
+          </article>
+          <article class="duality-card duality-card-light tilt" data-tilt>
+            <div class="tilt-inner">
+              <span class="duality-index" aria-hidden="true">V</span>
+              <p class="card-eyebrow">Our Vision</p>
+              <p class="duality-statement">The potential of every individual&rsquo;s brain is unlocked for better quality of life.</p>
+              <div class="duality-rule" aria-hidden="true"></div>
+            </div>
+          </article>
+        </div>
+        <p class="duality-blurb">
+          We are home to <strong>60+ scientists</strong> and <strong>30+ trainees</strong> dedicated to improving the lives
+          of our patients and generating new neurotechnology. Hosted by University Health Network in partnership with the
+          University of Toronto, CRANIA is set up to be fully integrated and <strong>first-to-clinic</strong> for
+          neuromodulation therapies that can positively impact patients.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Core Areas: orbital selector ============ -->
+    <!--
+      NOTE: Full Core A–F detail (leads, locations, capabilities) is preserved in the
+      data-panel content below. When the About/Core-detail page is built, migrate it there.
+    -->
+    <section class="section section-cores" id="cores" aria-labelledby="cores-heading">
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-num">02</span>
+          <h2 id="cores-heading" class="kicker-title">CRANIA Core Areas</h2>
+        </div>
+        <p class="section-lede">Six integrated cores carry neuromodulation technologies from bench to bedside — select a core to explore it.</p>
+
+        <div class="orbital">
+          <!-- Orbit ring visual + selectable core dots -->
+          <div class="orbital-stage" role="tablist" aria-label="CRANIA cores" aria-orientation="horizontal">
+            <div class="orbit-ring" aria-hidden="true"></div>
+            <div class="orbit-ring orbit-ring-2" aria-hidden="true"></div>
+            <span class="orbit-core-label" aria-hidden="true">CRANIA<br>CORES</span>
+            <button class="orbit-dot is-active" role="tab" id="tab-a" aria-selected="true" aria-controls="panel-a" style="--i:0">A</button>
+            <button class="orbit-dot" role="tab" id="tab-b" aria-selected="false" aria-controls="panel-b" tabindex="-1" style="--i:1">B</button>
+            <button class="orbit-dot" role="tab" id="tab-c" aria-selected="false" aria-controls="panel-c" tabindex="-1" style="--i:2">C</button>
+            <button class="orbit-dot" role="tab" id="tab-d" aria-selected="false" aria-controls="panel-d" tabindex="-1" style="--i:3">D</button>
+            <button class="orbit-dot" role="tab" id="tab-e" aria-selected="false" aria-controls="panel-e" tabindex="-1" style="--i:4">E</button>
+            <button class="orbit-dot" role="tab" id="tab-f" aria-selected="false" aria-controls="panel-f" tabindex="-1" style="--i:5">F</button>
+          </div>
+
+          <div class="orbital-panels">
+            <div class="orbit-panel is-active" role="tabpanel" id="panel-a" aria-labelledby="tab-a" tabindex="0">
+              <p class="orbit-tag">Core A</p>
+              <h3>Devices R&amp;D — Electrodes &amp; Coatings</h3>
+              <p class="orbit-summary">Manufactures customizable, biocompatible electrodes and coatings that minimize MRI imaging artifacts and extend functional longevity beyond existing electrode limitations.</p>
+              <dl class="orbit-meta">
+                <div><dt>Leads</dt><dd>A. Guenther (Mechanical &amp; Industrial Engineering, U of T); P. Santerre (Faculty of Dentistry)</dd></div>
+                <div><dt>Location</dt><dd>University of Toronto — Engineering &amp; Dentistry</dd></div>
+              </dl>
+            </div>
+            <div class="orbit-panel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" tabindex="0" hidden>
+              <p class="orbit-tag">Core B</p>
+              <h3>Devices R&amp;D — Electronics</h3>
+              <p class="orbit-summary">Develops next-generation implantable systems that process brain signals and deliver responsive neuromodulation therapy with wireless monitoring and real-time communication.</p>
+              <dl class="orbit-meta">
+                <div><dt>Lead</dt><dd>R. Genov (Electrical &amp; Computer Engineering, U of T)</dd></div>
+                <div><dt>Location</dt><dd>University of Toronto — Electrical &amp; Computer Engineering</dd></div>
+              </dl>
+            </div>
+            <div class="orbit-panel" role="tabpanel" id="panel-c" aria-labelledby="tab-c" tabindex="0" hidden>
+              <p class="orbit-tag">Core C</p>
+              <h3>Neuromodulation Suite</h3>
+              <p class="orbit-summary">Combines advanced imaging, electrophysiological measurement and surgical navigation to enable precise targeting of disease-associated brain regions in gray and white matter.</p>
+              <dl class="orbit-meta">
+                <div><dt>Leads</dt><dd>S. Kalia (Neurosurgery), T. Krings (Joint Medical Imaging), G. Zadeh (Neurosurgery)</dd></div>
+                <div><dt>Location</dt><dd>Toronto Western Hospital — UHN</dd></div>
+              </dl>
+            </div>
+            <div class="orbit-panel" role="tabpanel" id="panel-d" aria-labelledby="tab-d" tabindex="0" hidden>
+              <p class="orbit-tag">Core D</p>
+              <h3>Technology Validation — Animal Models</h3>
+              <p class="orbit-summary">Validates new electrodes, implantable stimulators, sensors, connectors and closed-loop control strategies from Cores A–C in appropriate animal models.</p>
+              <dl class="orbit-meta">
+                <div><dt>Leads</dt><dd>L. Zhang (Krembil Research Institute); J. Zariffa (Toronto Rehabilitation Institute)</dd></div>
+                <div><dt>Location</dt><dd>Toronto Western Hospital — UHN</dd></div>
+              </dl>
+            </div>
+            <div class="orbit-panel" role="tabpanel" id="panel-e" aria-labelledby="tab-e" tabindex="0" hidden>
+              <p class="orbit-tag">Core E</p>
+              <h3>Application — Closed-loop Capabilities</h3>
+              <p class="orbit-summary">Clinically evaluates closed-loop algorithms, chips and stimulation protocols with real-time physiological, behavioural and cognitive assessments.</p>
+              <dl class="orbit-meta">
+                <div><dt>Leads</dt><dd>R. Wennberg (Neurology), A. Fasano (Neurology), C. Marquez Chin (Toronto Rehabilitation Institute)</dd></div>
+                <div><dt>Location</dt><dd>Toronto Western Hospital, Movement Disorders Lab, Toronto Rehab REL (Lyndhurst)</dd></div>
+              </dl>
+            </div>
+            <div class="orbit-panel" role="tabpanel" id="panel-f" aria-labelledby="tab-f" tabindex="0" hidden>
+              <p class="orbit-tag">Core F</p>
+              <h3>High Performance Computing</h3>
+              <p class="orbit-summary">Provides robust computational infrastructure for data collection, standardization and analytics, connecting pre-processed sensor data to HPC4Health.</p>
+              <dl class="orbit-meta">
+                <div><dt>Leads</dt><dd>C. Virtanen (UHN), N. Koudas (U of T), A. Sheikholeslami (ECE, U of T), S. Hill (Krembil Research Institute)</dd></div>
+                <div><dt>Location</dt><dd>University Health Network</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ What is Neuromodulation: live signal ============ -->
+    <section class="section section-neuro" id="neuromodulation" aria-labelledby="neuro-heading">
+      <div class="neuro-signal" aria-hidden="true">
+        <svg viewBox="0 0 1200 200" preserveAspectRatio="none" focusable="false">
+          <path id="eeg-path" fill="none" stroke="currentColor" stroke-width="1.5"
+            d="M0,100 L120,100 L140,60 L160,140 L180,100 L300,100 L320,40 L332,150 L346,70 L360,100 L480,100 L500,80 L515,120 L530,55 L545,145 L560,100 L680,100 L700,60 L720,140 L740,100 L860,100 L880,45 L892,150 L906,70 L920,100 L1040,100 L1060,80 L1075,120 L1090,55 L1105,145 L1120,100 L1200,100" />
+        </svg>
+      </div>
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-num">03</span>
+          <h2 id="neuro-heading" class="kicker-title">What is neuromodulation?</h2>
+        </div>
+        <p class="neuro-definition">
+          Neuromodulation changes brain, spinal cord, or nerve function using advanced devices that interface
+          with specific areas of the nervous system — <em>reducing symptoms and addressing underlying disorders.</em>
+        </p>
+        <p class="neuro-subtitle">Established neuromodulation therapies</p>
+        <div class="therapy-grid">
+          <article class="therapy-card">
+            <span class="therapy-num" aria-hidden="true">01</span>
+            <h3>Functional Electrical Stimulation Therapy</h3>
+            <p>Improves voluntary control of upper limbs following stroke and spinal cord injury.</p>
+          </article>
+          <article class="therapy-card">
+            <span class="therapy-num" aria-hidden="true">02</span>
+            <h3>Deep Brain Stimulation</h3>
+            <p>Reduces motor symptoms of conditions such as Parkinson&rsquo;s disease.</p>
+          </article>
+          <article class="therapy-card">
+            <span class="therapy-num" aria-hidden="true">03</span>
+            <h3>Vagus Nerve Stimulation</h3>
+            <p>Reduces seizure burden by sending pulses of electrical energy to the brain.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Impact stats: counting ledger ============ -->
+    <section class="section section-stats" aria-labelledby="stats-heading">
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-num">04</span>
+          <h2 id="stats-heading" class="kicker-title">The burden of brain disorders</h2>
+        </div>
+        <div class="ledger">
+          <div class="ledger-row">
+            <span class="ledger-value" data-count="4" data-suffix="M">4M</span>
+            <span class="ledger-label">living with a neurological condition or injury</span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-value" data-count="7" data-suffix="M">7M</span>
+            <span class="ledger-label">experience mental illness or addiction each year</span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-value" data-count="25" data-suffix="%">25%</span>
+            <span class="ledger-label">of the burden of global disease</span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-value" data-count="10" data-suffix="%">10%</span>
+            <span class="ledger-label">attributed to neurological disorders</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ News: editorial index ============ -->
+    <section class="section section-news" id="latest-news" aria-labelledby="news-heading">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-kicker">
+            <span class="kicker-num">05</span>
+            <h2 id="news-heading" class="kicker-title">Media &amp; latest news</h2>
+          </div>
+          <a class="btn btn-line-dark btn-magnetic" href="https://kite-uhn.com/crania#latest-news">View all news</a>
+        </div>
+        <ol class="news-index">
+          <li class="news-entry">
+            <a href="https://kite-uhn.com/news/crania-welcomes-six">
+              <span class="news-tag">News</span>
+              <span class="news-title">CRANIA welcomes six scientists to its team</span>
+              <span class="news-blurb">Six new scientists join CRANIA, expanding its multidisciplinary neuromodulation expertise.</span>
+              <span class="news-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li class="news-entry">
+            <a href="https://kite-uhn.com/news/crania-gustavo-stroke">
+              <span class="news-tag">Research</span>
+              <span class="news-title">CRANIA trainee&rsquo;s research opens the door for potential new stroke rehab treatments</span>
+              <span class="news-blurb">Trainee-led research points toward potential new approaches to stroke rehabilitation.</span>
+              <span class="news-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li class="news-entry">
+            <a href="https://kite-uhn.com/news/kite-CRANIA-CIHR">
+              <span class="news-tag">Funding</span>
+              <span class="news-title">KITE scientists receive $1.3 million in funding from CIHR</span>
+              <span class="news-blurb">CIHR funding supports KITE and CRANIA scientists advancing neuromodulation research.</span>
+              <span class="news-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ Projects: showcase gallery ============ -->
+    <section class="section section-projects" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-num">06</span>
+          <h2 id="projects-heading" class="kicker-title">Recent projects</h2>
+        </div>
+      </div>
+      <div class="showcase" aria-label="Recent CRANIA projects">
+        <div class="showcase-viewport">
+          <figure class="showcase-slide is-active" data-index="0">
+            <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/photos/2_edited.jpg" alt="MyndMove therapy session" loading="lazy" decoding="async">
+            <figcaption>
+              <p class="showcase-num">01 / 04</p>
+              <h3>MyndMove</h3>
+              <p>A commercially available technology in North America that helps individuals with upper-limb paralysis restore function, explained by Toronto Rehab researcher Naaz Desai.</p>
+            </figcaption>
+          </figure>
+          <figure class="showcase-slide" data-index="1" hidden>
+            <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/photos/2_edited.jpg" alt="CRANIA M-gait lab" loading="lazy" decoding="async">
+            <figcaption>
+              <p class="showcase-num">02 / 04</p>
+              <h3>CRANIA M-gait Lab</h3>
+              <p>Dr. Alfonso Fasano describes how the immersive gait analysis lab supports people with Parkinson&rsquo;s — a collaboration between Krembil Brain Institute and Toronto Rehabilitation Institute researchers.</p>
+            </figcaption>
+          </figure>
+          <figure class="showcase-slide" data-index="2" hidden>
+            <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/photos/3_edited.jpg" alt="FES garment research at UHN" loading="lazy" decoding="async">
+            <figcaption>
+              <p class="showcase-num">03 / 04</p>
+              <h3>FES at UHN</h3>
+              <p>Toronto Rehab researchers partner with industry, including Myant, to develop garments that restore function for people with spinal cord injury.</p>
+            </figcaption>
+          </figure>
+          <figure class="showcase-slide" data-index="3" hidden>
+            <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/photos/4_edited.jpg" alt="Epilepsy monitoring research at Toronto Western Hospital" loading="lazy" decoding="async">
+            <figcaption>
+              <p class="showcase-num">04 / 04</p>
+              <h3>Why He Studies Epilepsy</h3>
+              <p>Dr. Taufik Valiante established a state-of-the-art Epilepsy Monitoring Unit at Toronto Western Hospital, expanding surgical services for people with medically refractory epilepsy across Ontario.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="showcase-controls container">
+          <button type="button" class="showcase-arrow" data-prev aria-label="Previous project">&larr;</button>
+          <div class="showcase-tabs" role="tablist" aria-label="Choose project">
+            <button class="showcase-tab is-active" data-go="0" aria-label="MyndMove"></button>
+            <button class="showcase-tab" data-go="1" aria-label="CRANIA M-gait Lab"></button>
+            <button class="showcase-tab" data-go="2" aria-label="FES at UHN"></button>
+            <button class="showcase-tab" data-go="3" aria-label="Why He Studies Epilepsy"></button>
+          </div>
+          <button type="button" class="showcase-arrow" data-next aria-label="Next project">&rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Operations team: portrait salon ============ -->
+    <section class="section section-team" id="operation" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-kicker">
+            <span class="kicker-num">07</span>
+            <h2 id="team-heading" class="kicker-title">Operations team</h2>
+          </div>
+          <a class="btn btn-line-dark btn-magnetic" href="https://kite-uhn.com/crania#operation">View the full operations team</a>
+        </div>
+        <div class="salon-grid">
+          <article class="salon-card">
+            <div class="salon-portrait">
+              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_40.jpg" alt="Portrait of Taufik Valiante" loading="lazy" decoding="async">
+            </div>
+            <h3>Taufik Valiante</h3>
+            <p>Co-Director / Founder</p>
+          </article>
+          <article class="salon-card">
+            <div class="salon-portrait">
+              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_62.png" alt="Portrait of Luka Milosevic" loading="lazy" decoding="async">
+            </div>
+            <h3>Luka Milosevic</h3>
+            <p>Co-Director</p>
+          </article>
+          <article class="salon-card">
+            <div class="salon-portrait">
+              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/Suhail-Asrar.png" alt="Portrait of Suhail Asrar" loading="lazy" decoding="async">
+            </div>
+            <h3>Suhail Asrar, MD, PhD</h3>
+            <p>Manager, CRANIA NeuroModulation Institute (CNMI)</p>
+          </article>
+          <article class="salon-card">
+            <div class="salon-portrait">
+              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/Yasser-Karimzad.png" alt="Portrait of Yasser Karimzad" loading="lazy" decoding="async">
+            </div>
+            <h3>Yasser Karimzad</h3>
+            <p>CRANIA Neuromodulation Suite Manager</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact: concierge finale ============ -->
+    <section class="section section-contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-kicker section-kicker-light">
+          <span class="kicker-num">08</span>
+          <h2 id="contact-heading" class="kicker-title">Contact CRANIA</h2>
+        </div>
+        <p class="contact-lede">Whether you have a question, want to become a member, or are exploring a partnership — reach the right team directly.</p>
+        <div class="concierge">
+          <a class="concierge-row" href="mailto:info@CRANIA.ca?subject=General%20inquiry">
+            <span class="concierge-label">General inquiries</span>
+            <span class="concierge-desc">Questions about CRANIA, our facilities, or our research programs.</span>
+            <span class="concierge-action">info@CRANIA.ca <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <button type="button" class="concierge-row concierge-row-btn" data-open-join>
+            <span class="concierge-label">Join CRANIA</span>
+            <span class="concierge-desc">Become a member of Toronto&rsquo;s neuromodulation research community.</span>
+            <span class="concierge-action">How to join <span aria-hidden="true">&rarr;</span></span>
+          </button>
+          <a class="concierge-row" href="mailto:info@CRANIA.ca?subject=Collaboration%20%2F%20industry%20partnership">
+            <span class="concierge-label">Collaboration &amp; industry</span>
+            <span class="concierge-desc">Partner with CRANIA on research, development, or commercialization.</span>
+            <span class="concierge-action">Start a conversation <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png" alt="CRANIA logo" class="brand-logo">
+        <p>CenteR for Advancing Neurotechnological Innovation to Applications<br>
+        Hosted by University Health Network in partnership with the University of Toronto &middot; Toronto, Canada</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="scientists.html">Scientists</a>
+        <a href="#operation">Operations Team</a>
+        <a href="#latest-news">Latest News</a>
+        <a href="https://kite-uhn.com/space-booking">Space Booking</a>
+        <a href="#contact">Contact</a>
+        <a href="https://twitter.com/CRANIA_Toronto">X / Twitter</a>
+      </nav>
+      <p class="footer-copy">Copyright &copy; 2026 KITE. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ Join CRANIA modal ============ -->
+  <dialog class="join-dialog" id="join-dialog" aria-labelledby="join-title">
+    <div class="join-dialog-body">
+      <button type="button" class="dialog-close" data-close-join aria-label="Close dialog">&times;</button>
+      <p class="card-eyebrow">Membership</p>
+      <h2 id="join-title">Join CRANIA</h2>
+      <p>
+        If you are interested in becoming a member, please send your CV along with a letter of support from your
+        Director/Chair to the attention of the Associate Director, Operations &amp; Academics via email to
+        <a href="mailto:info@CRANIA.ca?subject=CRANIA%20membership%20application">info@CRANIA.ca</a>.
+      </p>
+      <div class="dialog-actions">
+        <a class="btn btn-primary" href="mailto:info@CRANIA.ca?subject=CRANIA%20membership%20application">Email your application</a>
+        <button type="button" class="btn btn-ghost-dark" data-close-join>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/hero3d.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
