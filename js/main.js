@@ -56,6 +56,8 @@
   (function () {
     var tabs = Array.prototype.slice.call(document.querySelectorAll(".orbit-dot"));
     var panels = Array.prototype.slice.call(document.querySelectorAll(".orbit-panel"));
+    var bgLayers = Array.prototype.slice.call(document.querySelectorAll(".cores-bg-layer"));
+    var spokes = Array.prototype.slice.call(document.querySelectorAll(".orbit-spoke"));
     if (!tabs.length) return;
 
     function select(idx, focus) {
@@ -67,6 +69,8 @@
         panels[i].classList.toggle("is-active", active);
         if (active) { panels[i].hidden = false; }
         else { panels[i].hidden = true; }
+        if (bgLayers[i]) bgLayers[i].classList.toggle("is-active", active);
+        if (spokes[i]) spokes[i].classList.toggle("is-active", active);
       });
       if (focus) tabs[idx].focus();
     }
@@ -84,28 +88,8 @@
     });
   })();
 
-  /* ---------- Scientist roster filter (scientists.html) ---------- */
-  (function () {
-    var input = document.getElementById("sci-search");
-    var grid = document.getElementById("sci-grid");
-    if (!input || !grid) return;
-    var cards = Array.prototype.slice.call(grid.querySelectorAll(".sci-card"));
-    var count = document.getElementById("sci-count");
-    var empty = document.getElementById("sci-empty");
-    var total = cards.length;
-
-    input.addEventListener("input", function () {
-      var q = input.value.trim().toLowerCase();
-      var shown = 0;
-      cards.forEach(function (card) {
-        var hit = !q || card.getAttribute("data-name").indexOf(q) !== -1;
-        card.hidden = !hit;
-        if (hit) shown++;
-      });
-      if (count) count.textContent = q ? shown + " of " + total + " scientists" : total + " scientists";
-      if (empty) empty.hidden = shown !== 0;
-    });
-  })();
+  /* Scientist roster search/render/admin now lives in js/scientists-admin.js,
+     since the grid is fetched from the API instead of static markup. */
 
   /* ---------- Tilt cards (mission / vision) ---------- */
   if (finePointer && !reduceMotion) {

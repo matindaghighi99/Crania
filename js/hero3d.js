@@ -235,6 +235,26 @@
     if (reduceMotion) render();
   });
 
+  /* The hero's height can still shift after boot — most commonly when the
+     Google Fonts finish loading and swap in over the fallback font, which
+     changes text line-wrapping and therefore the section's content height.
+     A plain window "resize" listener never fires for that, so the canvas
+     would stay sized to the pre-swap layout until an actual window resize.
+     ResizeObserver reacts to the hero's real box size instead, whatever
+     the cause. */
+  if ("ResizeObserver" in window) {
+    var ro = new ResizeObserver(function () {
+      resize();
+      if (reduceMotion) render();
+    });
+    ro.observe(hero);
+  } else if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      resize();
+      if (reduceMotion) render();
+    });
+  }
+
   hero.addEventListener("pointermove", function (e) {
     var r = canvas.getBoundingClientRect();
     pointerX = e.clientX - r.left;

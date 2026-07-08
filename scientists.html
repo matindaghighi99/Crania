@@ -19,11 +19,7 @@
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="CRANIA home">
-        <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png" alt="CRANIA logo" class="brand-logo">
-        <span class="brand-text">
-          <strong>CRANIA</strong>
-          <small>UHN &middot; University of Toronto</small>
-        </span>
+        <span class="brand-text"><strong>CRANIA</strong></span>
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
@@ -34,7 +30,7 @@
           <li><a href="index.html#latest-news">Latest News</a></li>
           <li><a href="index.html#contact">Contact</a></li>
           <li><a href="https://kite-uhn.com/space-booking">Space Booking</a></li>
-          <li><button type="button" class="btn btn-primary btn-nav" data-open-join>Join CRANIA</button></li>
+          <li><button type="button" class="btn-join" data-open-join><span class="btn-join-dot" aria-hidden="true"></span>Join CRANIA</button></li>
         </ul>
       </nav>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -70,459 +66,17 @@
             <svg class="roster-search-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
             <input type="search" id="sci-search" placeholder="Search by name&hellip;" autocomplete="off">
           </div>
-          <p class="roster-count" id="sci-count" aria-live="polite">64 scientists</p>
+          <div class="roster-side">
+            <p class="roster-count" id="sci-count" aria-live="polite">Loading&hellip;</p>
+            <button type="button" class="btn btn-line-dark" id="admin-login-btn">Admin</button>
+            <div class="admin-toolbar" id="admin-toolbar" hidden>
+              <button type="button" class="btn btn-line-dark" id="admin-add-btn">+ Add scientist</button>
+              <button type="button" class="btn btn-ghost-dark" id="admin-logout-btn">Log out</button>
+            </div>
+          </div>
         </div>
 
-        <ul class="sci-grid" id="sci-grid">
-          <li class="sci-card" data-name="alex mihailidis">
-            <a href="https://kite-uhn.com/scientist/alex-mihailidis">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722442990675696.jpg" alt="Portrait of Alex Mihailidis" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Alex Mihailidis</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="alexandre boutet">
-            <a href="https://kite-uhn.com/scientist/alexandre-boutet">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638289158009811284.jpg" alt="Portrait of Alexandre Boutet" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Alexandre Boutet</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="alfonso fasano">
-            <a href="https://kite-uhn.com/scientist/alfonso-fasano">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637277336267029333.png" alt="Portrait of Alfonso Fasano" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Alfonso Fasano</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="ali sheikholeslami">
-            <a href="https://kite-uhn.com/scientist/ali-sheikholeslami">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638143873344130392.jpg" alt="Portrait of Ali Sheikholeslami" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Ali Sheikholeslami</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="andres lozano">
-            <a href="https://kite-uhn.com/scientist/andreas-lozano">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637723098489182878.jpg" alt="Portrait of Andres Lozano" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Andres Lozano</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="anthony lang">
-            <a href="https://kite-uhn.com/scientist/anthony-lang">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638143872492875886.jpg" alt="Portrait of Anthony Lang" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Anthony Lang</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="antonio liscidini">
-            <a href="https://kite-uhn.com/scientist/antonio-liscidini">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637602077439912754.jpg" alt="Portrait of Antonio Liscidini" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Antonio Liscidini</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="antonio strafella">
-            <a href="https://kite-uhn.com/scientist/antonio-strafella">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637604640595077851.jpg" alt="Portrait of Antonio Strafella" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Antonio Strafella</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="axel guenther">
-            <a href="https://kite-uhn.com/scientist/axel-gunther">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722445528256098.jpg" alt="Portrait of Axel Guenther" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Axel Guenther</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="berj luther bardakjian">
-            <a href="https://kite-uhn.com/scientist/berj-luther-bardakjian--">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637703166605649424.jpg" alt="Portrait of Berj Luther Bardakjian" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Berj Luther Bardakjian</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="beverley catharine (cathy) craven">
-            <a href="https://kite-uhn.com/scientist/cathy-craven">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_5.jpg" alt="Portrait of Beverley Catharine (Cathy) Craven" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Beverley Catharine (Cathy) Craven</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="bojana stefanovic">
-            <a href="https://kite-uhn.com/scientist/bojana-stefanovic">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638947874077793167.png" alt="Portrait of Bojana Stefanovic" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Bojana Stefanovic</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="brokoslaw laschowski">
-            <a href="https://kite-uhn.com/scientist/brokoslaw-laschowski">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638581978321042486.jpg" alt="Portrait of Brokoslaw Laschowski" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Brokoslaw Laschowski</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="cindi morshead">
-            <a href="https://kite-uhn.com/scientist/cindi-morshead">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637601345256915336.png" alt="Portrait of Cindi Morshead" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Cindi Morshead</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="clement hamani">
-            <a href="https://kite-uhn.com/scientist/clement-hamani">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722323544503140.jpg" alt="Portrait of Clement Hamani" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Clement Hamani</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="ervin sejdic">
-            <a href="https://kite-uhn.com/scientist/ervin-sejdic">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722446280421619.jpg" alt="Portrait of Ervin Sejdic" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Ervin Sejdic</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="frances skinner">
-            <a href="https://kite-uhn.com/scientist/frances-skinner">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722447604288936.jpg" alt="Portrait of Frances Skinner" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Frances Skinner</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="gelareh zadeh">
-            <a href="https://kite-uhn.com/scientist/gelareh-zadeh">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637686100242842143.png" alt="Portrait of Gelareh Zadeh" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Gelareh Zadeh</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="geoff fernie">
-            <a href="https://kite-uhn.com/scientist/geoff-fernie">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_1.jpg" alt="Portrait of Geoff Fernie" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Geoff Fernie</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="george eleftheriades">
-            <a href="https://kite-uhn.com/scientist/george-eleftheriades">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722448251621659.jpg" alt="Portrait of George Eleftheriades" loading="lazy" decoding="async"></span>
-              <span class="sci-name">George Eleftheriades</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="hani naguib">
-            <a href="https://kite-uhn.com/scientist/hani-naguib">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637275552533849106.jpg" alt="Portrait of Hani Naguib" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Hani Naguib</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="ian connell">
-            <a href="https://kite-uhn.com/scientist/ian-connell">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638295322035999009.png" alt="Portrait of Ian Connell" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Ian Connell</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="jiannis taxidis">
-            <a href="https://kite-uhn.com/scientist/jiannis-taxidis">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638284772825719728.png" alt="Portrait of Jiannis Taxidis" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Jiannis Taxidis</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="joanne nash">
-            <a href="https://kite-uhn.com/scientist/joanne-nash">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637691320654810734.jpg" alt="Portrait of Joanne Nash" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Joanne Nash</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="jose zariffa">
-            <a href="https://kite-uhn.com/scientist/jose-zariffa">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_32.jpg" alt="Portrait of Jose Zariffa" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Jose Zariffa</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="joyce poon">
-            <a href="https://kite-uhn.com/scientist/joyce-poon">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637608643022709269.jpg" alt="Portrait of Joyce Poon" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Joyce Poon</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="julio c. furlan">
-            <a href="https://kite-uhn.com/scientist/julio-furlan">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_28.jpg" alt="Portrait of Julio C. Furlan" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Julio C. Furlan</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="jürgen germann">
-            <a href="https://kite-uhn.com/scientist/jurgen-germann">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638289846033338971.png" alt="Portrait of J&#252;rgen Germann" loading="lazy" decoding="async"></span>
-              <span class="sci-name">J&#252;rgen Germann</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="kamil uludag">
-            <a href="https://kite-uhn.com/scientist/kamil-uludag">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637842416698479145.jpg" alt="Portrait of Kamil Uludag" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Kamil Uludag</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="karen davis">
-            <a href="https://kite-uhn.com/scientist/karen-davis">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637602083881842344.jpg" alt="Portrait of Karen Davis" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Karen Davis</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="katherine duncan">
-            <a href="https://kite-uhn.com/scientist/katherine-duncan">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638597732715016469.png" alt="Portrait of Katherine Duncan" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Katherine Duncan</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="kei masani">
-            <a href="https://kite-uhn.com/scientist/kei-masani">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_13.jpg" alt="Portrait of Kei Masani" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Kei Masani</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="konstantinos plataniotis">
-            <a href="https://kite-uhn.com/scientist/konstantinos-plataniotis">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722448733638773.jpg" alt="Portrait of Konstantinos Plataniotis" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Konstantinos Plataniotis</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="kristin musselman">
-            <a href="https://kite-uhn.com/scientist/kristin-musselman">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_34.jpg" alt="Portrait of Kristin Musselman" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Kristin Musselman</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="liang zhang">
-            <a href="https://kite-uhn.com/scientist/liang-zhang">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637701581533192982.bmp" alt="Portrait of Liang Zhang" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Liang Zhang</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="lorraine kalia">
-            <a href="https://kite-uhn.com/scientist/lorraine-kalia">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722326190194491.jpg" alt="Portrait of Lorraine Kalia" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Lorraine Kalia</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="luc tremblay">
-            <a href="https://kite-uhn.com/scientist/luc-tremblay">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_36.jpg" alt="Portrait of Luc Tremblay" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Luc Tremblay</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="luca scardovi">
-            <a href="https://kite-uhn.com/scientist/luca-scardovi">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638143872916471744.jpg" alt="Portrait of Luca Scardovi" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Luca Scardovi</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="luka milosevic">
-            <a href="https://kite-uhn.com/scientist/luka-milosevic">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_62.png" alt="Portrait of Luka Milosevic" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Luka Milosevic</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="magdy hassouna">
-            <a href="https://kite-uhn.com/scientist/magdy-hassouna">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722271425165436.jpg" alt="Portrait of Magdy Hassouna" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Magdy Hassouna</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="michael fehlings">
-            <a href="https://kite-uhn.com/scientist/michael-fehlings">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637601356885358048.jpg" alt="Portrait of Michael Fehlings" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Michael Fehlings</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="michael garton">
-            <a href="https://kite-uhn.com/scientist/michael-garton">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638328216349343963.jpg" alt="Portrait of Michael Garton" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Michael Garton</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="mihai mishu duduta">
-            <a href="https://kite-uhn.com/scientist/mihai-dudata">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637867364754220737.png" alt="Portrait of Mihai &quot;Mishu&quot; Duduta" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Mihai &quot;Mishu&quot; Duduta</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="milad lankarany">
-            <a href="https://kite-uhn.com/scientist/milad-lankarany">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637600419020313153.jpg" alt="Portrait of Milad Lankarany" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Milad Lankarany</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="milos r. popovic">
-            <a href="https://kite-uhn.com/scientist/milos-popovic">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_15.jpg" alt="Portrait of Milos R. Popovic" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Milos R. Popovic</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="nick koudas">
-            <a href="https://kite-uhn.com/scientist/nick-koudas">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637723092568117822.jpg" alt="Portrait of Nick Koudas" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Nick Koudas</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="ofer levi">
-            <a href="https://kite-uhn.com/scientist/ofer-levi">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637620310016934793.jpg" alt="Portrait of Ofer Levi" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Ofer Levi</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="paul b yoo">
-            <a href="https://kite-uhn.com/scientist/paul-b-yoo">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_45.jpg" alt="Portrait of Paul B Yoo" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Paul B Yoo</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="paul frankland">
-            <a href="https://kite-uhn.com/scientist/paul-frankland">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722449231747500.png" alt="Portrait of Paul Frankland" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Paul Frankland</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="peter carlen">
-            <a href="https://kite-uhn.com/scientist/peter-carlen">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638143872003810701.jpg" alt="Portrait of Peter Carlen" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Peter Carlen</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="raviraj adve">
-            <a href="https://kite-uhn.com/scientist/ravi-adve">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637602080385887932.jpg" alt="Portrait of Raviraj Adve" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Raviraj Adve</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="richard wennberg">
-            <a href="https://kite-uhn.com/scientist/richard-wennberg">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637673965656433561.jpg" alt="Portrait of Richard Wennberg" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Richard Wennberg</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="robert chen">
-            <a href="https://kite-uhn.com/scientist/robert-chen">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722450137189465.jpg" alt="Portrait of Robert Chen" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Robert Chen</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="roman genov">
-            <a href="https://kite-uhn.com/scientist/roman-genov">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722438407547907.jpg" alt="Portrait of Roman Genov" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Roman Genov</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="sean hill">
-            <a href="https://kite-uhn.com/scientist/sean-hill">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637601425945868502.jpg" alt="Portrait of Sean Hill" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Sean Hill</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="sheena josselyn">
-            <a href="https://kite-uhn.com/scientist/sheena-josselyn">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637620467432731071.jpg" alt="Portrait of Sheena Josselyn" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Sheena Josselyn</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="suneil kalia">
-            <a href="https://kite-uhn.com/scientist/suneil-kalia">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_39.jpg" alt="Portrait of Suneil Kalia" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Suneil Kalia</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="taufik valiante">
-            <a href="https://kite-uhn.com/scientist/taufik-a-valiante">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_638684039253505856.jpg" alt="Portrait of Taufik Valiante" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Taufik Valiante</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="timo krings">
-            <a href="https://kite-uhn.com/scientist/timo-krings">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637722450726234159.jpg" alt="Portrait of Timo Krings" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Timo Krings</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="timothy nevin welsh">
-            <a href="https://kite-uhn.com/scientist/timothy-nevin-welsh">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637402768649578454.jpg" alt="Portrait of Timothy Nevin Welsh" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Timothy Nevin Welsh</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="venkat bhat">
-            <a href="https://kite-uhn.com/scientist/venkat-bhat">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637695016445842880.jpg" alt="Portrait of Venkat Bhat" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Venkat Bhat</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="william hutchison">
-            <a href="https://kite-uhn.com/scientist/william-hutchison">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637731304638487610.jpg" alt="Portrait of William Hutchison" loading="lazy" decoding="async"></span>
-              <span class="sci-name">William Hutchison</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="xilin liu">
-            <a href="https://kite-uhn.com/scientist/xilin-liu">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637701583918429919.jpg" alt="Portrait of Xilin Liu" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Xilin Liu</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-          <li class="sci-card" data-name="yu sun">
-            <a href="https://kite-uhn.com/scientist/yu-sun">
-              <span class="sci-portrait"><img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/scientist_self_637602076417766020.jpg" alt="Portrait of Yu Sun" loading="lazy" decoding="async"></span>
-              <span class="sci-name">Yu Sun</span>
-              <span class="sci-view">View profile <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          </li>
-        </ul>
+        <ul class="sci-grid" id="sci-grid"></ul>
 
         <p class="roster-empty" id="sci-empty" hidden>No scientists match that name.</p>
       </div>
@@ -534,7 +88,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png" alt="CRANIA logo" class="brand-logo">
+        <img src="assets/img/whitelogo-transparent.png" alt="CRANIA logo" class="brand-logo">
         <p>CenteR for Advancing Neurotechnological Innovation to Applications<br>
         Hosted by University Health Network in partnership with the University of Toronto &middot; Toronto, Canada</p>
       </div>
@@ -569,6 +123,47 @@
     </div>
   </dialog>
 
+  <!-- ============ Admin login modal ============ -->
+  <dialog class="join-dialog" id="admin-login-dialog" aria-labelledby="admin-login-title">
+    <div class="join-dialog-body">
+      <button type="button" class="dialog-close" data-close-admin-login aria-label="Close dialog">&times;</button>
+      <p class="card-eyebrow">Admin</p>
+      <h2 id="admin-login-title">Admin login</h2>
+      <form id="admin-login-form" novalidate>
+        <label class="sr-only" for="admin-password">Password</label>
+        <input class="dialog-input" type="password" id="admin-password" name="password" placeholder="Password" autocomplete="current-password" required>
+        <p class="dialog-error" id="admin-login-error" role="alert" hidden></p>
+        <div class="dialog-actions">
+          <button type="submit" class="btn btn-primary">Log in</button>
+          <button type="button" class="btn btn-ghost-dark" data-close-admin-login>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ============ Add scientist modal ============ -->
+  <dialog class="join-dialog" id="add-scientist-dialog" aria-labelledby="add-scientist-title">
+    <div class="join-dialog-body">
+      <button type="button" class="dialog-close" data-close-add-scientist aria-label="Close dialog">&times;</button>
+      <p class="card-eyebrow">Admin</p>
+      <h2 id="add-scientist-title">Add scientist</h2>
+      <form id="add-scientist-form" novalidate>
+        <label class="sr-only" for="new-sci-name">Full name</label>
+        <input class="dialog-input" type="text" id="new-sci-name" name="name" placeholder="Full name" required>
+        <label class="dialog-label" for="new-sci-photo">Photo (JPEG, PNG or WEBP, max 5MB)</label>
+        <input class="dialog-input dialog-input-file" type="file" id="new-sci-photo" name="photo_file" accept="image/jpeg,image/png,image/webp" required>
+        <label class="sr-only" for="new-sci-profile">Profile URL</label>
+        <input class="dialog-input" type="url" id="new-sci-profile" name="profile_url" placeholder="Profile URL (https://&hellip;)" required>
+        <p class="dialog-error" id="add-scientist-error" role="alert" hidden></p>
+        <div class="dialog-actions">
+          <button type="submit" class="btn btn-primary">Add scientist</button>
+          <button type="button" class="btn btn-ghost-dark" data-close-add-scientist>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
   <script src="js/main.js" defer></script>
+  <script src="js/scientists-admin.js" defer></script>
 </body>
 </html>

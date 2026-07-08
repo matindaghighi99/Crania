@@ -19,11 +19,7 @@
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="CRANIA home">
-        <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png" alt="CRANIA logo" class="brand-logo">
-        <span class="brand-text">
-          <strong>CRANIA</strong>
-          <small>UHN &middot; University of Toronto</small>
-        </span>
+        <span class="brand-text"><strong>CRANIA</strong></span>
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
@@ -34,7 +30,7 @@
           <li><a href="#latest-news">Latest News</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="https://kite-uhn.com/space-booking">Space Booking</a></li>
-          <li><button type="button" class="btn btn-primary btn-nav" data-open-join>Join CRANIA</button></li>
+          <li><button type="button" class="btn-join" data-open-join><span class="btn-join-dot" aria-hidden="true"></span>Join CRANIA</button></li>
         </ul>
       </nav>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -55,17 +51,16 @@
         <p class="hero-eyebrow"><span class="eyebrow-dot"></span>Neuromodulation Research &middot; Downtown Toronto</p>
         <h1 id="hero-heading">Advancing neuromodulation from <em>discovery</em> to <span class="grad-word">patient impact</span></h1>
         <p class="hero-lede">
-          CRANIA — the CenteR for Advancing Neurotechnological Innovation to Applications — unites
+          CRANIA — the Center for Advancing Neurotechnological Innovation to Applications — unites
           research, clinical and academic expertise across disciplines, with broad access to patients, in a
           world-class centre for the research, development, application and commercialization of
-          neuromodulation technologies.
+          neuromodulation technologies.s
         </p>
         <div class="hero-ctas">
           <a class="btn btn-primary btn-magnetic" href="#cores">Explore our work</a>
           <a class="btn btn-line btn-magnetic" href="scientists.html">Meet our scientists</a>
           <button type="button" class="btn btn-line btn-magnetic" data-open-join>Join CRANIA</button>
         </div>
-        <p class="hero-hint" aria-hidden="true">Drag the constellation to explore &middot; move your cursor to energize the network</p>
       </div>
       <div class="hero-ticker" aria-hidden="true">
         <div class="ticker-track">
@@ -125,6 +120,16 @@
       data-panel content below. When the About/Core-detail page is built, migrate it there.
     -->
     <section class="section section-cores" id="cores" aria-labelledby="cores-heading">
+      <div class="cores-bg" aria-hidden="true">
+        <div class="cores-grid"></div>
+        <div class="cores-scan"></div>
+        <div class="cores-bg-layer is-active" data-core="a"><span class="core-watermark">A</span></div>
+        <div class="cores-bg-layer" data-core="b"><span class="core-watermark">B</span></div>
+        <div class="cores-bg-layer" data-core="c"><span class="core-watermark">C</span></div>
+        <div class="cores-bg-layer" data-core="d"><span class="core-watermark">D</span></div>
+        <div class="cores-bg-layer" data-core="e"><span class="core-watermark">E</span></div>
+        <div class="cores-bg-layer" data-core="f"><span class="core-watermark">F</span></div>
+      </div>
       <div class="container">
         <div class="section-kicker">
           <span class="kicker-num">02</span>
@@ -133,11 +138,20 @@
         <p class="section-lede">Six integrated cores carry neuromodulation technologies from bench to bedside — select a core to explore it.</p>
 
         <div class="orbital">
-          <!-- Orbit ring visual + selectable core dots -->
+          <!-- Hub-and-spoke circuit selector -->
           <div class="orbital-stage" role="tablist" aria-label="CRANIA cores" aria-orientation="horizontal">
             <div class="orbit-ring" aria-hidden="true"></div>
             <div class="orbit-ring orbit-ring-2" aria-hidden="true"></div>
-            <span class="orbit-core-label" aria-hidden="true">CRANIA<br>CORES</span>
+            <div class="orbit-spoke is-active" style="--i:0" aria-hidden="true"></div>
+            <div class="orbit-spoke" style="--i:1" aria-hidden="true"></div>
+            <div class="orbit-spoke" style="--i:2" aria-hidden="true"></div>
+            <div class="orbit-spoke" style="--i:3" aria-hidden="true"></div>
+            <div class="orbit-spoke" style="--i:4" aria-hidden="true"></div>
+            <div class="orbit-spoke" style="--i:5" aria-hidden="true"></div>
+            <div class="orbit-hub" aria-hidden="true">
+              <span class="orbit-hub-ring"></span>
+              <span class="orbit-hub-label">CRANIA<br>CORES</span>
+            </div>
             <button class="orbit-dot is-active" role="tab" id="tab-a" aria-selected="true" aria-controls="panel-a" style="--i:0">A</button>
             <button class="orbit-dot" role="tab" id="tab-b" aria-selected="false" aria-controls="panel-b" tabindex="-1" style="--i:1">B</button>
             <button class="orbit-dot" role="tab" id="tab-c" aria-selected="false" aria-controls="panel-c" tabindex="-1" style="--i:2">C</button>
@@ -148,6 +162,24 @@
 
           <div class="orbital-panels">
             <div class="orbit-panel is-active" role="tabpanel" id="panel-a" aria-labelledby="tab-a" tabindex="0">
+              <div class="core-viewfinder" aria-hidden="true">
+                <span class="vf-corner vf-tl"></span><span class="vf-corner vf-tr"></span>
+                <span class="vf-corner vf-bl"></span><span class="vf-corner vf-br"></span>
+                <svg class="schema-icon" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect class="schema-draw" x="82" y="14" width="24" height="118" rx="12" pathLength="100" style="--d:0s"/>
+                  <rect x="76" y="34" width="20" height="7" rx="2" class="schema-fill"/>
+                  <rect x="76" y="58" width="20" height="7" rx="2" class="schema-fill"/>
+                  <rect x="76" y="82" width="20" height="7" rx="2" class="schema-fill"/>
+                  <rect x="76" y="106" width="20" height="7" rx="2" class="schema-fill"/>
+                  <line class="schema-draw" x1="88" y1="20" x2="88" y2="126" pathLength="100" style="--d:.1s" stroke-width="1" opacity="0.35"/>
+                  <path class="schema-draw" d="M96 61 L136 40" pathLength="100" style="--d:.3s"/>
+                  <circle class="schema-draw" cx="152" cy="34" r="26" pathLength="100" style="--d:.35s"/>
+                  <circle class="schema-draw" cx="152" cy="34" r="10" pathLength="100" style="--d:.45s"/>
+                  <circle cx="152" cy="34" r="4" class="schema-fill"/>
+                  <circle class="schema-pulse" cx="94" cy="128" r="4"/>
+                  <circle class="schema-pulse-ring" cx="94" cy="128" r="4"/>
+                </svg>
+              </div>
               <p class="orbit-tag">Core A</p>
               <h3>Devices R&amp;D — Electrodes &amp; Coatings</h3>
               <p class="orbit-summary">Manufactures customizable, biocompatible electrodes and coatings that minimize MRI imaging artifacts and extend functional longevity beyond existing electrode limitations.</p>
@@ -157,6 +189,26 @@
               </dl>
             </div>
             <div class="orbit-panel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" tabindex="0" hidden>
+              <div class="core-viewfinder" aria-hidden="true">
+                <span class="vf-corner vf-tl"></span><span class="vf-corner vf-tr"></span>
+                <span class="vf-corner vf-bl"></span><span class="vf-corner vf-br"></span>
+                <svg class="schema-icon" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect class="schema-draw" x="62" y="42" width="76" height="76" rx="6" pathLength="100" style="--d:0s"/>
+                  <path class="schema-draw" d="M78 62 h16 v14 h16 v14 h16" pathLength="100" style="--d:.15s"/>
+                  <circle cx="78" cy="62" r="2.6" class="schema-fill"/>
+                  <circle cx="126" cy="90" r="2.6" class="schema-fill"/>
+                  <line class="schema-draw" x1="40" y1="58" x2="62" y2="58" pathLength="100" style="--d:.1s"/>
+                  <line class="schema-draw" x1="40" y1="80" x2="62" y2="80" pathLength="100" style="--d:.1s"/>
+                  <line class="schema-draw" x1="40" y1="102" x2="62" y2="102" pathLength="100" style="--d:.1s"/>
+                  <line class="schema-draw" x1="138" y1="58" x2="160" y2="58" pathLength="100" style="--d:.2s"/>
+                  <line class="schema-draw" x1="138" y1="80" x2="160" y2="80" pathLength="100" style="--d:.2s"/>
+                  <line class="schema-flow" x1="138" y1="102" x2="172" y2="102" pathLength="100"/>
+                  <path class="schema-draw" d="M148 26 a14 14 0 0 1 20 0" pathLength="100" style="--d:.3s"/>
+                  <path class="schema-draw" d="M153 32 a7 7 0 0 1 10 0" pathLength="100" style="--d:.35s"/>
+                  <circle class="schema-pulse" cx="172" cy="102" r="4"/>
+                  <circle class="schema-pulse-ring" cx="172" cy="102" r="4"/>
+                </svg>
+              </div>
               <p class="orbit-tag">Core B</p>
               <h3>Devices R&amp;D — Electronics</h3>
               <p class="orbit-summary">Develops next-generation implantable systems that process brain signals and deliver responsive neuromodulation therapy with wireless monitoring and real-time communication.</p>
@@ -166,6 +218,21 @@
               </dl>
             </div>
             <div class="orbit-panel" role="tabpanel" id="panel-c" aria-labelledby="tab-c" tabindex="0" hidden>
+              <div class="core-viewfinder" aria-hidden="true">
+                <span class="vf-corner vf-tl"></span><span class="vf-corner vf-tr"></span>
+                <span class="vf-corner vf-bl"></span><span class="vf-corner vf-br"></span>
+                <svg class="schema-icon" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <circle class="schema-dash" cx="100" cy="82" r="66" pathLength="100"/>
+                  <circle class="schema-dash" cx="100" cy="82" r="50" pathLength="100"/>
+                  <path class="schema-draw" d="M74 70c-3-16 10-28 26-26 16-2 29 10 26 26 6 3 9 12 4 19 2 9-6 17-15 16-2 6-9 10-15 8-6 2-13-2-15-8-9 1-17-7-15-16-5-7-2-16 4-19z" pathLength="100" style="--d:0s"/>
+                  <path class="schema-draw" d="M100 44v58M84 56c6 4 10 4 16 0M82 78c8 5 20 5 28 -2M86 96c6 3 12 3 18 0" pathLength="100" style="--d:.15s"/>
+                  <line class="schema-draw" x1="128" y1="52" x2="128" y2="88" pathLength="100" style="--d:.3s"/>
+                  <line class="schema-draw" x1="110" y1="70" x2="146" y2="70" pathLength="100" style="--d:.35s"/>
+                  <circle class="schema-draw" cx="128" cy="70" r="16" pathLength="100" style="--d:.4s"/>
+                  <circle class="schema-pulse" cx="128" cy="70" r="4"/>
+                  <circle class="schema-pulse-ring" cx="128" cy="70" r="4"/>
+                </svg>
+              </div>
               <p class="orbit-tag">Core C</p>
               <h3>Neuromodulation Suite</h3>
               <p class="orbit-summary">Combines advanced imaging, electrophysiological measurement and surgical navigation to enable precise targeting of disease-associated brain regions in gray and white matter.</p>
@@ -175,6 +242,22 @@
               </dl>
             </div>
             <div class="orbit-panel" role="tabpanel" id="panel-d" aria-labelledby="tab-d" tabindex="0" hidden>
+              <div class="core-viewfinder" aria-hidden="true">
+                <span class="vf-corner vf-tl"></span><span class="vf-corner vf-tr"></span>
+                <span class="vf-corner vf-bl"></span><span class="vf-corner vf-br"></span>
+                <svg class="schema-icon" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse class="schema-draw" cx="56" cy="98" rx="28" ry="18" pathLength="100" style="--d:0s"/>
+                  <circle class="schema-draw" cx="94" cy="84" r="16" pathLength="100" style="--d:.08s"/>
+                  <circle class="schema-draw" cx="100" cy="70" r="6" pathLength="100" style="--d:.14s"/>
+                  <circle cx="99" cy="83" r="2" class="schema-fill"/>
+                  <path class="schema-draw" d="M32 92c-8-2-14 4-13 12" pathLength="100" style="--d:.2s"/>
+                  <line class="schema-flow" x1="122" y1="90" x2="150" y2="90" pathLength="100"/>
+                  <path class="schema-draw" d="M172 54 L188 62 L188 92 Q188 110 172 118 Q156 110 156 92 L156 62 Z" pathLength="100" style="--d:.3s"/>
+                  <path class="schema-draw" d="M164 86l6 8 14-18" pathLength="100" style="--d:.45s"/>
+                  <circle class="schema-pulse" cx="172" cy="118" r="4"/>
+                  <circle class="schema-pulse-ring" cx="172" cy="118" r="4"/>
+                </svg>
+              </div>
               <p class="orbit-tag">Core D</p>
               <h3>Technology Validation — Animal Models</h3>
               <p class="orbit-summary">Validates new electrodes, implantable stimulators, sensors, connectors and closed-loop control strategies from Cores A–C in appropriate animal models.</p>
@@ -184,6 +267,25 @@
               </dl>
             </div>
             <div class="orbit-panel" role="tabpanel" id="panel-e" aria-labelledby="tab-e" tabindex="0" hidden>
+              <div class="core-viewfinder" aria-hidden="true">
+                <span class="vf-corner vf-tl"></span><span class="vf-corner vf-tr"></span>
+                <span class="vf-corner vf-bl"></span><span class="vf-corner vf-br"></span>
+                <svg class="schema-icon" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <g transform="translate(14,21) scale(0.5)">
+                    <path class="schema-draw" vector-effect="non-scaling-stroke" d="M74 70c-3-16 10-28 26-26 16-2 29 10 26 26 6 3 9 12 4 19 2 9-6 17-15 16-2 6-9 10-15 8-6 2-13-2-15-8-9 1-17-7-15-16-5-7-2-16 4-19z" pathLength="100" style="--d:0s"/>
+                    <path class="schema-draw" vector-effect="non-scaling-stroke" d="M100 44v58M84 56c6 4 10 4 16 0M82 78c8 5 20 5 28 -2M86 96c6 3 12 3 18 0" pathLength="100" style="--d:.15s"/>
+                  </g>
+                  <rect class="schema-draw" x="128" y="94" width="42" height="32" rx="6" pathLength="100" style="--d:.2s"/>
+                  <line x1="135" y1="103" x2="150" y2="103" class="schema-draw" pathLength="100" style="--d:.35s"/>
+                  <line x1="135" y1="113" x2="156" y2="113" class="schema-draw" pathLength="100" style="--d:.38s"/>
+                  <path class="schema-flow" d="M78 62 C104 74 118 84 128 96" pathLength="100"/>
+                  <path class="schema-flow" d="M132 120 C100 134 70 100 58 68" pathLength="100"/>
+                  <circle class="schema-pulse" cx="64" cy="58" r="4"/>
+                  <circle class="schema-pulse-ring" cx="64" cy="58" r="4"/>
+                  <circle class="schema-pulse" cx="149" cy="110" r="4" style="animation-delay:.8s"/>
+                  <circle class="schema-pulse-ring" cx="149" cy="110" r="4" style="animation-delay:.8s"/>
+                </svg>
+              </div>
               <p class="orbit-tag">Core E</p>
               <h3>Application — Closed-loop Capabilities</h3>
               <p class="orbit-summary">Clinically evaluates closed-loop algorithms, chips and stimulation protocols with real-time physiological, behavioural and cognitive assessments.</p>
@@ -193,6 +295,22 @@
               </dl>
             </div>
             <div class="orbit-panel" role="tabpanel" id="panel-f" aria-labelledby="tab-f" tabindex="0" hidden>
+              <div class="core-viewfinder" aria-hidden="true">
+                <span class="vf-corner vf-tl"></span><span class="vf-corner vf-tr"></span>
+                <span class="vf-corner vf-bl"></span><span class="vf-corner vf-br"></span>
+                <svg class="schema-icon" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect class="schema-draw" x="55" y="96" width="90" height="20" rx="4" pathLength="100" style="--d:0s"/>
+                  <rect class="schema-draw" x="55" y="120" width="90" height="20" rx="4" pathLength="100" style="--d:.08s"/>
+                  <circle cx="66" cy="106" r="2.4" class="schema-fill"/>
+                  <circle cx="76" cy="106" r="2.4" class="schema-fill"/>
+                  <circle cx="66" cy="130" r="2.4" class="schema-fill"/>
+                  <circle cx="76" cy="130" r="2.4" class="schema-fill"/>
+                  <line class="schema-flow" x1="100" y1="96" x2="100" y2="54" pathLength="100"/>
+                  <path class="schema-draw" d="M78 46c-8-14 10-26 20-16 4-10 22-8 22 4 10 0 12 16 2 20z" pathLength="100" style="--d:.2s"/>
+                  <circle class="schema-pulse" cx="100" cy="42" r="4"/>
+                  <circle class="schema-pulse-ring" cx="100" cy="42" r="4"/>
+                </svg>
+              </div>
               <p class="orbit-tag">Core F</p>
               <h3>High Performance Computing</h3>
               <p class="orbit-summary">Provides robust computational infrastructure for data collection, standardization and analytics, connecting pre-processed sensor data to HPC4Health.</p>
@@ -225,20 +343,41 @@
         </p>
         <p class="neuro-subtitle">Established neuromodulation therapies</p>
         <div class="therapy-grid">
-          <article class="therapy-card">
-            <span class="therapy-num" aria-hidden="true">01</span>
-            <h3>Functional Electrical Stimulation Therapy</h3>
-            <p>Improves voluntary control of upper limbs following stroke and spinal cord injury.</p>
+          <article class="therapy-card therapy-card--fes">
+            <div class="therapy-photo" style="background-image:url(assets/img/therapies/fes-electrodes.jpg)" aria-hidden="true">
+              <span class="therapy-pulse-dot" style="left:38%; top:35%"></span>
+              <span class="therapy-pulse-ring" style="left:38%; top:35%"></span>
+            </div>
+            <div class="therapy-scrim" aria-hidden="true"></div>
+            <div class="therapy-copy">
+              <span class="therapy-num" aria-hidden="true">01</span>
+              <h3>Functional Electrical Stimulation Therapy</h3>
+              <p>Improves voluntary control of upper limbs following stroke and spinal cord injury.</p>
+            </div>
           </article>
-          <article class="therapy-card">
-            <span class="therapy-num" aria-hidden="true">02</span>
-            <h3>Deep Brain Stimulation</h3>
-            <p>Reduces motor symptoms of conditions such as Parkinson&rsquo;s disease.</p>
+          <article class="therapy-card therapy-card--dbs">
+            <div class="therapy-photo" style="background-image:url(assets/img/therapies/dbs-implant.jpg)" aria-hidden="true">
+              <span class="therapy-pulse-dot" style="left:49%; top:20%"></span>
+              <span class="therapy-pulse-ring" style="left:49%; top:20%"></span>
+            </div>
+            <div class="therapy-scrim" aria-hidden="true"></div>
+            <div class="therapy-copy">
+              <span class="therapy-num" aria-hidden="true">02</span>
+              <h3>Deep Brain Stimulation</h3>
+              <p>Reduces motor symptoms of conditions such as Parkinson&rsquo;s disease.</p>
+            </div>
           </article>
-          <article class="therapy-card">
-            <span class="therapy-num" aria-hidden="true">03</span>
-            <h3>Vagus Nerve Stimulation</h3>
-            <p>Reduces seizure burden by sending pulses of electrical energy to the brain.</p>
+          <article class="therapy-card therapy-card--vns">
+            <div class="therapy-photo" style="background-image:url(assets/img/therapies/vns-diagram.jpg)" aria-hidden="true">
+              <span class="therapy-pulse-dot" style="left:50%; top:48%"></span>
+              <span class="therapy-pulse-ring" style="left:50%; top:48%"></span>
+            </div>
+            <div class="therapy-scrim" aria-hidden="true"></div>
+            <div class="therapy-copy">
+              <span class="therapy-num" aria-hidden="true">03</span>
+              <h3>Vagus Nerve Stimulation</h3>
+              <p>Reduces seizure burden by sending pulses of electrical energy to the brain.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -322,7 +461,7 @@
       <div class="showcase" aria-label="Recent CRANIA projects">
         <div class="showcase-viewport">
           <figure class="showcase-slide is-active" data-index="0">
-            <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/photos/2_edited.jpg" alt="MyndMove therapy session" loading="lazy" decoding="async">
+            <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/photos/1_edited.jpg" alt="MyndMove therapy session" loading="lazy" decoding="async">
             <figcaption>
               <p class="showcase-num">01 / 04</p>
               <h3>MyndMove</h3>
@@ -377,35 +516,57 @@
           </div>
           <a class="btn btn-line-dark btn-magnetic" href="https://kite-uhn.com/crania#operation">View the full operations team</a>
         </div>
-        <div class="salon-grid">
-          <article class="salon-card">
-            <div class="salon-portrait">
-              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_40.jpg" alt="Portrait of Taufik Valiante" loading="lazy" decoding="async">
-            </div>
-            <h3>Taufik Valiante</h3>
-            <p>Co-Director / Founder</p>
-          </article>
-          <article class="salon-card">
-            <div class="salon-portrait">
-              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_62.png" alt="Portrait of Luka Milosevic" loading="lazy" decoding="async">
-            </div>
-            <h3>Luka Milosevic</h3>
-            <p>Co-Director</p>
-          </article>
-          <article class="salon-card">
-            <div class="salon-portrait">
-              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/Suhail-Asrar.png" alt="Portrait of Suhail Asrar" loading="lazy" decoding="async">
-            </div>
-            <h3>Suhail Asrar, MD, PhD</h3>
-            <p>Manager, CRANIA NeuroModulation Institute (CNMI)</p>
-          </article>
-          <article class="salon-card">
-            <div class="salon-portrait">
-              <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/Yasser-Karimzad.png" alt="Portrait of Yasser Karimzad" loading="lazy" decoding="async">
-            </div>
-            <h3>Yasser Karimzad</h3>
-            <p>CRANIA Neuromodulation Suite Manager</p>
-          </article>
+        <div class="roster-wall">
+          <div class="roster-grid">
+            <article class="roster-card roster-card-lead tilt" data-tilt>
+              <div class="tilt-inner roster-card-inner">
+                <div class="roster-photo">
+                  <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_40.jpg" alt="Portrait of Taufik Valiante" loading="lazy" decoding="async">
+                </div>
+                <div class="roster-meta">
+                  <h3>Taufik Valiante</h3>
+                  <p>Co-Director / Founder</p>
+                  <span class="roster-rule" aria-hidden="true"></span>
+                </div>
+              </div>
+            </article>
+            <article class="roster-card tilt" data-tilt>
+              <div class="tilt-inner roster-card-inner">
+                <div class="roster-photo">
+                  <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/kite_scientist_a_62.png" alt="Portrait of Luka Milosevic" loading="lazy" decoding="async">
+                </div>
+                <div class="roster-meta">
+                  <h3>Luka Milosevic</h3>
+                  <p>Co-Director</p>
+                  <span class="roster-rule" aria-hidden="true"></span>
+                </div>
+              </div>
+            </article>
+            <article class="roster-card tilt" data-tilt>
+              <div class="tilt-inner roster-card-inner">
+                <div class="roster-photo">
+                  <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/Suhail-Asrar.png" alt="Portrait of Suhail Asrar" loading="lazy" decoding="async">
+                </div>
+                <div class="roster-meta">
+                  <h3>Suhail Asrar, MD, PhD</h3>
+                  <p>Manager, CRANIA NeuroModulation Institute (CNMI)</p>
+                  <span class="roster-rule" aria-hidden="true"></span>
+                </div>
+              </div>
+            </article>
+            <article class="roster-card tilt" data-tilt>
+              <div class="tilt-inner roster-card-inner">
+                <div class="roster-photo">
+                  <img src="https://kite-uhn-photos.s3.ca-central-1.amazonaws.com/Yasser-Karimzad.png" alt="Portrait of Yasser Karimzad" loading="lazy" decoding="async">
+                </div>
+                <div class="roster-meta">
+                  <h3>Yasser Karimzad</h3>
+                  <p>CRANIA Neuromodulation Suite Manager</p>
+                  <span class="roster-rule" aria-hidden="true"></span>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -444,7 +605,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="https://kite-uhn-crania.s3.ca-central-1.amazonaws.com/logo/CraniaLogo.png" alt="CRANIA logo" class="brand-logo">
+        <img src="assets/img/whitelogo-transparent.png" alt="CRANIA logo" class="brand-logo">
         <p>CenteR for Advancing Neurotechnological Innovation to Applications<br>
         Hosted by University Health Network in partnership with the University of Toronto &middot; Toronto, Canada</p>
       </div>
