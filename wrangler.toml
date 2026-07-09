@@ -2,11 +2,25 @@ name = "crania-site"
 pages_build_output_dir = "."
 compatibility_date = "2026-07-08"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "crania-scientists"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
-
-[[r2_buckets]]
-binding = "PHOTOS"
-bucket_name = "crania-scientist-photos"
+# --- Database & storage bindings (admin features) ---
+# These are commented out until a real Cloudflare D1 database and R2 bucket are
+# provisioned. Leaving a placeholder `database_id` here makes Cloudflare reject
+# the deployment, which takes the whole site down. With these disabled the site
+# still deploys and the Scientists page renders from assets/data/scientists.json
+# (see js/scientists-admin.js). Admin add/remove needs these bindings live.
+#
+# To enable:
+#   1. npx wrangler d1 create crania-scientists   (paste the id below)
+#   2. Apply migrations/0001_init.sql and migrations/0002_seed.sql
+#   3. npx wrangler r2 bucket create crania-scientist-photos
+#   4. Set secrets: ADMIN_PASSWORD_SALT, ADMIN_PASSWORD_HASH, SESSION_SECRET
+#   5. Uncomment the blocks below and redeploy.
+#
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "crania-scientists"
+# database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+#
+# [[r2_buckets]]
+# binding = "PHOTOS"
+# bucket_name = "crania-scientist-photos"
