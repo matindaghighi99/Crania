@@ -131,7 +131,17 @@
   // unavailable (e.g. the database binding hasn't been provisioned) so the
   // public page still renders the full directory. Admin add/remove requires
   // the live API and stays disabled in this fallback mode.
+  //
+  // Prefer the roster embedded via js/scientists-data.js (a global), because
+  // that works even when the page is opened directly from disk (file://),
+  // where fetch() is blocked. Fall back to fetching the JSON only if the
+  // global isn't present.
   function loadFallback() {
+    if (Array.isArray(window.CRANIA_SCIENTISTS)) {
+      scientists = window.CRANIA_SCIENTISTS.slice();
+      render();
+      return Promise.resolve();
+    }
     return fetch("assets/data/scientists.json")
       .then(function (res) {
         if (!res.ok) throw new Error("fallback unavailable");
