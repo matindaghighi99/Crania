@@ -127,15 +127,38 @@
     return fetch(url, options);
   }
 
-  function loadScientists() {
-    return fetch("/api/scientists", { credentials: "same-origin" })
-      .then(function (res) { return res.json(); })
+  // Static roster shipped with the site. Used when the D1-backed API is
+  // unavailable (e.g. the database binding hasn't been provisioned) so the
+  // public page still renders the full directory. Admin add/remove requires
+  // the live API and stays disabled in this fallback mode.
+  function loadFallback() {
+    return fetch("assets/data/scientists.json")
+      .then(function (res) {
+        if (!res.ok) throw new Error("fallback unavailable");
+        return res.json();
+      })
       .then(function (data) {
         scientists = Array.isArray(data) ? data : [];
         render();
       })
       .catch(function () {
         if (countEl) countEl.textContent = "Couldn't load scientists.";
+      });
+  }
+
+  function loadScientists() {
+    return fetch("/api/scientists", { credentials: "same-origin" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("api error " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        scientists = Array.isArray(data) ? data : [];
+        render();
+      })
+      .catch(function () {
+        // API unreachable or misconfigured — fall back to the static roster.
+        return loadFallback();
       });
   }
 
