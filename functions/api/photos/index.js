@@ -22,6 +22,10 @@ export async function onRequestPost(context) {
     return json({ error: "Unauthorized." }, 401);
   }
 
+  if (!env.PHOTOS) {
+    return json({ error: "Photo storage not provisioned — see wrangler.toml to enable uploads." }, 503);
+  }
+
   let form;
   try {
     form = await request.formData();

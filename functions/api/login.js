@@ -9,6 +9,14 @@ import {
 
 export async function onRequestPost(context) {
   const { request, env } = context;
+
+  if (!env.ADMIN_PASSWORD_SALT || !env.ADMIN_PASSWORD_HASH || !env.SESSION_SECRET) {
+    return new Response(JSON.stringify({ error: "Admin login is not configured on the server." }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    });
+  }
+
   const ip = getClientIp(request);
 
   const allowed = await checkRateLimit(env, ip);

@@ -17,30 +17,80 @@
   var W = 0, H = 0;
 
   /* ---------- Geometry: brain-shaped point cloud ---------- */
-  var N = isNarrow ? 260 : 430;
+  var N = isNarrow ? 360 : 660;
   var nodes = [];
   var edges = [];
   var adj = [];
 
-  function buildCloud() {
-    nodes = [];
-    var i, x, y, z, r;
-    while (nodes.length < N) {
+  function pushNode(px, py, pz) {
+    nodes.push({ x: px, y: py, z: pz, sx: 0, sy: 0, sc: 0, glow: 0 });
+  }
+
+  // Uniform point in the unit ball, optionally pushed out to the shell.
+  function samplePoint(surfaceBias) {
+    var x, y, z, r;
+    for (;;) {
       x = Math.random() * 2 - 1;
       y = Math.random() * 2 - 1;
       z = Math.random() * 2 - 1;
       r = Math.sqrt(x * x + y * y + z * z);
-      if (r > 1 || r === 0) continue;
-      // Bias points toward the surface so the form reads as a solid.
-      if (nodes.length % 10 < 7) {
-        var s = (0.82 + Math.random() * 0.18) / r;
-        x *= s; y *= s; z *= s;
+      if (r > 0 && r <= 1) break;
+    }
+    if (surfaceBias) {
+      var s = (0.88 + Math.random() * 0.12) / r;
+      x *= s; y *= s; z *= s;
+    }
+    return [x, y, z];
+  }
+
+  function buildCloud() {
+    nodes = [];
+    var i;
+    var cerebellumN = Math.round(N * 0.14);
+    var stemN = Math.round(N * 0.05);
+    var cerebrumN = N - cerebellumN - stemN;
+
+    // Cerebrum: long ellipsoid with a cortical ripple, temporal-lobe
+    // bulges on the lower flanks, a flattened underside and a shallow
+    // interhemispheric groove along the crown (depth axis, so the side
+    // view stays solid).
+    for (i = 0; i < cerebrumN; i++) {
+      var p = samplePoint(i % 10 < 6);
+      var px = p[0] * 1.5, py = p[1] * 0.88, pz = p[2] * 0.78;
+
+      var w = 1 + 0.05 * Math.sin(px * 5.3) * Math.sin(py * 4.1 + 1.7) * Math.sin(pz * 6.1 + 0.5);
+      px *= w; py *= w; pz *= w;
+
+      // Canvas y grows downward, so "up" is negative py throughout.
+      py -= px * 0.08;
+      if (py > 0 && px > -0.5 && px < 0.6) pz *= 1.14;
+      if (py > 0.38) py = 0.38 + (py - 0.38) * 0.5;
+      if (py < -0.15) {
+        var groove = (-0.15 - py) * 0.22;
+        pz += pz > 0 ? groove : -groove;
       }
-      // Ellipsoid proportions + hemisphere cleft + flattened base.
-      var px = x * 1.18, py = y * 0.86, pz = z * 0.98;
-      px += px > 0 ? 0.16 : -0.16;
-      if (py < -0.45) py *= 0.78;
-      nodes.push({ x: px, y: py, z: pz, sx: 0, sy: 0, sc: 0, glow: 0 });
+
+      pushNode(px, py, pz);
+    }
+
+    // Cerebellum: small finely-rippled lobe tucked under the back.
+    for (i = 0; i < cerebellumN; i++) {
+      var c = samplePoint(i % 10 < 7);
+      var qx = c[0] * 0.36, qy = c[1] * 0.28, qz = c[2] * 0.44;
+      var wc = 1 + 0.07 * Math.sin(qy * 18);
+      pushNode(-0.9 + qx * wc, 0.56 + qy * wc, qz * wc);
+    }
+
+    // Brain stem: short tapering column angling down from the midbrain.
+    for (i = 0; i < stemN; i++) {
+      var t = Math.random();
+      var ang = Math.random() * Math.PI * 2;
+      var rad = Math.sqrt(Math.random()) * (0.14 - t * 0.05);
+      pushNode(
+        -0.26 - t * 0.16 + Math.cos(ang) * rad,
+        0.46 + t * 0.44,
+        Math.sin(ang) * rad
+      );
     }
 
     // k-nearest edges with a distance cutoff.
@@ -95,8 +145,8 @@
 
   /* ---------- Interaction state ---------- */
   var autoAngle = 0;
-  var userRX = -0.12, userRY = 0.3;      // current user rotation offset
-  var targetRX = -0.12, targetRY = 0.3;  // eased target
+  var userRX = -0.12, userRY = 0.18;     // current user rotation offset
+  var targetRX = -0.12, targetRY = 0.18; // eased target
   var velX = 0, velY = 0;
   var dragging = false;
   var lastPX = 0, lastPY = 0;
@@ -118,9 +168,9 @@
   function render() {
     ctx.clearRect(0, 0, W, H);
 
-    var cx = W * (isNarrow ? 0.5 : 0.68);
+    var cx = W * (isNarrow ? 0.5 : 0.64);
     var cy = H * (isNarrow ? 0.34 : 0.5);
-    var size = Math.min(W, H) * (isNarrow ? 0.34 : 0.42);
+    var size = Math.min(W, H) * (isNarrow ? 0.34 : 0.40);
     var persp = 3.2;
 
     if (!dragging) {
@@ -129,7 +179,9 @@
     }
     userRX += (targetRX - userRX) * 0.06;
     userRY += (targetRY - userRY) * 0.06;
-    var rx = userRX, ry = autoAngle + userRY;
+    // Gentle sway around the profile pose (instead of a full spin) so the
+    // silhouette keeps reading as a brain; dragging still rotates freely.
+    var rx = userRX, ry = Math.sin(autoAngle) * 0.24 + userRY;
 
     var cosY = Math.cos(ry), sinY = Math.sin(ry);
     var cosX = Math.cos(rx), sinX = Math.sin(rx);
@@ -212,7 +264,7 @@
   var lastSpawn = 0;
   function loop(ts) {
     if (!running) return;
-    autoAngle += 0.0016;
+    autoAngle += 0.0038;
     if (ts - lastSpawn > 850) { spawnPulse(); lastSpawn = ts; }
     render();
     rafId = requestAnimationFrame(loop);
@@ -267,14 +319,14 @@
       lastPX = e.clientX; lastPY = e.clientY;
     } else if (e.pointerType === "mouse") {
       // Gentle parallax steering when not dragging.
-      targetRY = 0.3 + ((e.clientX - r.left) / r.width - 0.5) * 0.5;
+      targetRY = 0.18 + ((e.clientX - r.left) / r.width - 0.5) * 0.5;
       targetRX = -0.12 + ((e.clientY - r.top) / r.height - 0.5) * 0.35;
     }
   });
 
   hero.addEventListener("pointerleave", function () {
     pointerX = pointerY = -9999;
-    targetRX = -0.12; targetRY = 0.3;
+    targetRX = -0.12; targetRY = 0.18;
   });
 
   canvas.addEventListener("pointerdown", function (e) {

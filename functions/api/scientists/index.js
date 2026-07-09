@@ -22,6 +22,13 @@ export async function onRequestPost(context) {
     });
   }
 
+  if (!env.DB) {
+    return new Response(
+      JSON.stringify({ error: "Database not provisioned — see wrangler.toml to enable add/remove." }),
+      { status: 503, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } }
+    );
+  }
+
   let body;
   try {
     body = await request.json();

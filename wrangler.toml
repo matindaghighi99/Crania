@@ -2,6 +2,20 @@ name = "crania-site"
 pages_build_output_dir = "."
 compatibility_date = "2026-07-08"
 
+# --- Admin login credentials ---
+# ADMIN_PASSWORD_* is a PBKDF2-SHA256 salt+hash of the admin password; the
+# plaintext itself is never stored. To change the password, regenerate both
+# values with scripts/generate-password-hash.js (Node) or:
+#   python3 -c "import hashlib,secrets,base64; s=secrets.token_bytes(16); print('salt', base64.b64encode(s).decode()); print('hash', base64.b64encode(hashlib.pbkdf2_hmac('sha256', b'NEW-PASSWORD', s, 100000, dklen=32)).decode())"
+#
+# For stronger secrecy, move these three values into encrypted secrets in the
+# Cloudflare dashboard (Pages project -> Settings -> Environment variables)
+# and delete this block.
+[vars]
+ADMIN_PASSWORD_SALT = "JtIE8ylDEwPQBZux9r8RmQ=="
+ADMIN_PASSWORD_HASH = "86HHlt31hN/eXgsNNUUO/wFhx4R+crdzcPQ6oWKMVOY="
+SESSION_SECRET = "JR2G8Jj1UNJhgWVFW2Zk1VDecaTDsUOXF4KhAPspmfk="
+
 # --- Database & storage bindings (admin features) ---
 # These are commented out until a real Cloudflare D1 database and R2 bucket are
 # provisioned. Leaving a placeholder `database_id` here makes Cloudflare reject
@@ -13,8 +27,8 @@ compatibility_date = "2026-07-08"
 #   1. npx wrangler d1 create crania-scientists   (paste the id below)
 #   2. Apply migrations/0001_init.sql and migrations/0002_seed.sql
 #   3. npx wrangler r2 bucket create crania-scientist-photos
-#   4. Set secrets: ADMIN_PASSWORD_SALT, ADMIN_PASSWORD_HASH, SESSION_SECRET
-#   5. Uncomment the blocks below and redeploy.
+#   4. Uncomment the blocks below and redeploy.
+# (Admin login credentials already live in [vars] above and work without these.)
 #
 # [[d1_databases]]
 # binding = "DB"

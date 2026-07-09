@@ -207,7 +207,7 @@
   /* ---------- Scroll reveal ---------- */
   if (!reduceMotion && "IntersectionObserver" in window) {
     var targets = document.querySelectorAll(
-      ".duality-card, .duality-blurb, .therapy-card, .ledger-row, .news-entry, .salon-card, .concierge-row, .orbital-stage, .orbital-panels"
+      ".duality-card, .duality-emblem, .duality-blurb, .therapy-card, .ledger-row, .news-entry, .roster-card, .salon-card, .concierge-row, .orbital-stage, .orbital-panels"
     );
     targets.forEach(function (el) { el.classList.add("reveal"); });
     var revObs = new IntersectionObserver(function (entries) {

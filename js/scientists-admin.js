@@ -214,7 +214,16 @@
         body: JSON.stringify({ password: password }),
       })
         .then(function (res) {
-          if (!res.ok) return res.json().then(function (d) { throw new Error(d.error || "Login failed."); });
+          if (!res.ok) {
+            return res
+              .json()
+              .catch(function () {
+                // Non-JSON response — the /api routes aren't running here
+                // (e.g. static-only deploy), so surface that instead.
+                throw new Error("Admin API not available on this deployment.");
+              })
+              .then(function (d) { throw new Error(d.error || "Login failed."); });
+          }
           return res.json();
         })
         .then(function () {
@@ -223,7 +232,13 @@
           render();
         })
         .catch(function (err) {
-          showError(loginError, err.message || "Login failed.");
+          // fetch() itself rejecting (Safari: "Load failed") means the request
+          // never reached a server — the admin API only exists on Cloudflare
+          // Pages, not when the page is opened as a local file.
+          var msg = err instanceof TypeError
+            ? "Can't reach the admin API. Admin login only works on the deployed Cloudflare site, not from a local copy of the page."
+            : err.message || "Login failed.";
+          showError(loginError, msg);
         });
     });
   }

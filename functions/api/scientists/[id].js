@@ -19,6 +19,13 @@ export async function onRequestDelete(context) {
     });
   }
 
+  if (!env.DB) {
+    return new Response(
+      JSON.stringify({ error: "Database not provisioned — see wrangler.toml to enable add/remove." }),
+      { status: 503, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } }
+    );
+  }
+
   await env.DB.prepare("DELETE FROM scientists WHERE id = ?").bind(id).run();
 
   return new Response(JSON.stringify({ deleted: id }), {
